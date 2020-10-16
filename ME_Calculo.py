@@ -267,7 +267,14 @@ print()
 #        [linha 1:[], linha 2:[], linha 3:[]]
 matriz = [[3, 2, 4, 80],[2, 2, 3, 60],[3, 3, 5, 95]]
 n = len(matriz)
-print(n, matriz)
 
+print("Matriz: ")
+print("| A | B | C |")
+print("|", matriz[0][0], "|", matriz[0][1], "|", matriz[0][2], "|", matriz[0][3])
+print("|", matriz[1][0], "|", matriz[1][1], "|", matriz[1][2], "|", matriz[1][3])
+print("|", matriz[2][0], "|", matriz[2][1], "|", matriz[2][2], "|", matriz[2][3])
+print()
 x = eliminacao_de_gauss(matriz, n)
-print(x)
+print("Quantidade de carros do modelo A: ", round(x[0]))
+print("Quantidade de carros do modelo B: ", round(x[1]))
+print("Quantidade de carros do modelo C: ", round(x[2]))
