@@ -177,10 +177,99 @@ r2, c2 = falsa_posicao(func_q2, 0, 0.05, erro)
 print("Falsa posição - Raíz:", r2, "- Intervalo: (0, 0.05) - Iterações feitas:", c2, " - Aproximação:", format(func_q2(r2), '.10f'), "ou", func_q2(r2))
 print()
 print("O valor de X que satisfaz a equação dentro do erro escolhido é:", r2)
+print()
+print()
 # existe uma enorme diferença no número de iterações que ambos os métodos fazem para chegar a um valor aceitável
 # o método da falsa posição não só chega mais rápido a uma aproximação como também chega mais perto de 0, mostrando melhor desempenho no problema
 
-'''
-
 
 '''
+3) (0,8 pontos) Uma fábrica de automóveis produz 3 modelos de carros: A, B e C. Cada um deles
+passa por 3 setores diferentes de montagem: setor de motores, lataria e acabamento. O setor de
+motores trabalha 80 horas por semana; o de lataria trabalha 60 horas por semana e o de
+acabamento trabalha 95 horas por semana. Sabe-se que o modelo A precisa de 3 horas no setor de
+motores, 2 horas no setor de lataria e 3 horas no setor de acabamento; o modelo B precisa de 2
+horas no setor de motores, 2 horas no setor de lataria e 3 horas no setor de acabamento; o modelo
+C precisa de 4 horas no setor de motores, 3 horas no setor de lataria e 5 horas no setor de
+acabamento. Pergunta-se: quantos carros de cada modelo a fábrica é capaz de produzir
+semanalmente? Use o método da eliminação de Gauss para obter a resposta.
+
+# parte adicionada por mim
+
+A matriz do problema ficaria assim:
+                | A  | B  | C  | Horas semanais     
+    motores     | 3a | 2b | 4c | 80                       | 3 | 2 | 4 |       | a |       | 80 |
+    lataria     | 2a | 2b | 3c | 60                 [A] = | 2 | 2 | 3 |   x = | b |   b = | 60 |
+    acabamento  | 3a | 3b | 5c | 95                       | 3 | 3 | 5 |       | c |       | 95 |
+
+
+    matriz A dos coeficientes estendida:
+
+            | 3 | 2 | 4 || 80 |
+      [A] = | 2 | 2 | 3 || 60 |
+            | 3 | 3 | 5 || 95 |
+
+sendo a, b e c o número de carros de seus respectivos tipos fabricados em uma semana
+
+'''
+
+def eliminacao_de_gauss(matriz, n):
+    # acabou = False
+    # n = 3 no começo
+    # cada coluna tem seu pivo respectivo
+    pivo = []
+    # no vetor dos multiplicadores eles são salvos em listas contendo os indices e os valores
+    mult = {}
+    # vetor dos resultados
+    x = {}
+    i = 0
+    # descobre os pivos e multiplicadores
+
+    # etapas
+    for e in range(n-1):
+        # itera sobre as linhas
+        pivo.append(matriz[e][e])
+        # linha
+        i = e+1
+        # calcula os multiplicadores da etapa
+        while(i<n):
+            mult[(i,e)] = -(matriz[i][e]/matriz[e][e])
+            i += 1
+
+        i = e+1
+        # faz as transformações lineares
+        while(i<n):
+            for col in range(len(matriz[i])):
+                matriz[i][col] = matriz[i][col] + mult[(i,e)] * matriz[e][col]
+            i += 1
+
+# so far so good
+###############################
+    # substituição regressiva
+    for i in range(n):
+        # j determina a linha
+        j = n-i-1
+        if i == 0:
+            x[j] = (matriz[j][j+1]/matriz[j][j])
+        else:
+            # k representa as colunas 
+            k = 0
+            # resultado
+            x[j] = 0
+            while k < i:
+                x[j] -= matriz[j][n-k-1] * x[n-k-1]
+                k += 1
+            x[j] -= x[n-1]
+            x[j] = x[j]/matriz[j][j] 
+                
+    return x
+
+
+
+#        [linha 1:[], linha 2:[], linha 3:[]]
+matriz = [[3, 2, 4, 80],[2, 2, 3, 60],[3, 3, 5, 95]]
+n = len(matriz)
+print(n, matriz)
+
+x = eliminacao_de_gauss(matriz, n)
+print(x)
