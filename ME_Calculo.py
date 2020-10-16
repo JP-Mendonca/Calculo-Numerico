@@ -34,12 +34,14 @@ def falsa_posicao(f, xa, xb, erro):
                     xa = xm
     return xm, cont
 
-
+# O MÉTODO ABAIXO FOI CRIADO POR MIM PARA ENCONTRAR BONS INTERVALOS PARA EXECUTAR O MÉTODO DA FALSA POSIÇÃO
 def encontra_intervalos(f, erro, metodo):
     raizes = []
     xa = 0
     xb = 1
-    passo = 1
+    # o passo pode ser alterado, afetando diretamente o desempenho na busca por intervalos, quanto menor o passo mais preciso o intervalo 
+    # recomendo que teste com valores: 0.5, 0.1, 0.05, 0.01 para ver como o intervalo escolhido influencia no desempenho do método intervalar
+    passo = 0.5
     era_valido = False
     melhorando_xb = True
     while len(raizes)<2:
@@ -89,7 +91,7 @@ def encontra_intervalos(f, erro, metodo):
                 if era_valido:
                     xa = ultimo_xa
                     era_valido = False
-                    # salva a raíz com o intervalo
+                    # salva a raízes, intervalos e números de iterações
                     r, c1 = metodo(f, xa, xb, erro)
                     raizes.append(r)
                     r, c2 = metodo(f, prox_xa, prox_xb, erro)
@@ -116,7 +118,6 @@ erro = 10**-5
 # o método abaixo encontra as raízes e os seus respectivos intervalos e os exibe junto com o número de iterações e a aproximação encontrada para a raiz
 intervalos = encontra_intervalos(func_q1, erro, falsa_posicao)
 
-# so far so good
 
 '''
 2) (0,6 pontos) Em processos de engenharia, o vapor de água (H2O) é aquecido a altas temperaturas de
@@ -167,7 +168,6 @@ erro = 10**-8
 r, c = bisseccao(func_q2, 0, 0.05, erro)
 
 print()
-print()
 print("Questão 2:")
 print()
 
@@ -175,7 +175,12 @@ print("Bissecção - Raíz:", r, "- Intervalo: (0, 0.05) - Iterações feitas:",
 
 r2, c2 = falsa_posicao(func_q2, 0, 0.05, erro)
 print("Falsa posição - Raíz:", r2, "- Intervalo: (0, 0.05) - Iterações feitas:", c2, " - Aproximação:", format(func_q2(r2), '.10f'), "ou", func_q2(r2))
+print()
 print("O valor de X que satisfaz a equação dentro do erro escolhido é:", r2)
 # existe uma enorme diferença no número de iterações que ambos os métodos fazem para chegar a um valor aceitável
 # o método da falsa posição não só chega mais rápido a uma aproximação como também chega mais perto de 0, mostrando melhor desempenho no problema
 
+'''
+
+
+'''
