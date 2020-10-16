@@ -178,7 +178,6 @@ print("Falsa posição - Raíz:", r2, "- Intervalo: (0, 0.05) - Iterações feit
 print()
 print("O valor de X que satisfaz a equação dentro do erro escolhido é:", r2)
 print()
-print()
 # existe uma enorme diferença no número de iterações que ambos os métodos fazem para chegar a um valor aceitável
 # o método da falsa posição não só chega mais rápido a uma aproximação como também chega mais perto de 0, mostrando melhor desempenho no problema
 
@@ -243,28 +242,27 @@ def eliminacao_de_gauss(matriz, n):
                 matriz[i][col] = matriz[i][col] + mult[(i,e)] * matriz[e][col]
             i += 1
 
-# so far so good
-###############################
+
     # substituição regressiva
-    for i in range(n):
-        # j determina a linha
-        j = n-i-1
-        if i == 0:
-            x[j] = (matriz[j][j+1]/matriz[j][j])
-        else:
-            # k representa as colunas 
-            k = 0
-            # resultado
-            x[j] = 0
-            while k < i:
-                x[j] -= matriz[j][n-k-1] * x[n-k-1]
-                k += 1
-            x[j] -= x[n-1]
-            x[j] = x[j]/matriz[j][j] 
+   
+    # itera de n-1 até 0
+    for i in range(n-1,-1,-1):
+        k = n-1
+        x[i] = 0
+        while k > i:
+            x[i] -= (x[k] * matriz[i][k]) 
+            k -= 1
+
+        x[i] += matriz[i][n]
+        x[i] = x[i]/matriz[i][i]
+
                 
     return x
 
 
+print()
+print("Questão 3:")
+print()
 
 #        [linha 1:[], linha 2:[], linha 3:[]]
 matriz = [[3, 2, 4, 80],[2, 2, 3, 60],[3, 3, 5, 95]]
