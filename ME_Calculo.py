@@ -106,8 +106,8 @@ def encontra_intervalos(f, erro, metodo):
     print("Questão 1:")
     print()
 
-    print("Raíz 1:", raizes[0], "- Intervalo: (",intervalos[0], ",", intervalos[1], ") - Iterações feitas:", c1, " - Aproximação:", format(f(raizes[0]), '.7f'))
-    print("Raíz 2:", raizes[1], "- Intervalo: (",intervalos[2], ",", intervalos[3], ") - Iterações feitas:", c2, " - Aproximação:", format(f(raizes[1]), '.7f'))
+    print("Raíz 1:", raizes[0], "- Intervalo: (",intervalos[0], ",", intervalos[1], ") - Iterações feitas:", c1, " - Aproximação:", format(f(raizes[0]), '.7f'), "ou", f(raizes[0]))
+    print("Raíz 2:", raizes[1], "- Intervalo: (",intervalos[2], ",", intervalos[3], ") - Iterações feitas:", c2, " - Aproximação:", format(f(raizes[1]), '.7f'), "ou", f(raizes[1]))
 
     return intervalos
 

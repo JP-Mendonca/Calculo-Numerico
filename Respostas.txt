@@ -1,0 +1,24 @@
+Questão 1:
+
+Raíz 1: 8.353327504984824 - Intervalo: ( 8.0 , 10.5 ) - Iterações feitas: 6  - Aproximação: -0.0000024 ou -2.4357745234127037e-06
+Raíz 2: 10.608976455510149 - Intervalo: ( 10.5 , 11.5 ) - Iterações feitas: 6  - Aproximação: -0.0000034 ou -3.4429599526930588e-06
+
+Questão 2:
+
+Bissecção - Raíz: 0.03153460025787353 - Intervalo: (0, 0.05) - Iterações feitas: 21  - Aproximação: -0.0000000056 ou -5.611752326717401e-09
+Falsa posição - Raíz: 0.031534602549881746 - Intervalo: (0, 0.05) - Iterações feitas: 4  - Aproximação: -0.0000000022 ou -2.208539434667145e-09
+
+O valor de X que satisfaz a equação dentro do erro escolhido é: 0.031534602549881746
+
+
+Questão 3:
+
+Matriz: 
+| A | B | C |
+| 3 | 2 | 4 | 80
+| 2 | 2 | 3 | 60
+| 3 | 3 | 5 | 95
+
+Quantidade de carros do modelo A:  10
+Quantidade de carros do modelo B:  5
+Quantidade de carros do modelo C:  10
