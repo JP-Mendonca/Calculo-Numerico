@@ -1,0 +1,48 @@
+Eqs originais:
+
+i12 + i52 + i32 = 0 (1)
+i65 − i52 − i54 = 0 (2)
+i43 − i32 = 0 (3)
+i54 − i43 = 0 (4)
+−15i54 − 5i43 − 10i32 + 10i52 = 0 (5) => -30i54 + 10i52 = 0 => -3i54 + i52 = 0
+−20i65 − 10i52 + 5i12 = 200 (6) => -4i65 - 2i52 + i12 = 40 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+1) Obtendo a primeira equação (5i12 - 2i52 = 40)
+
+fazendo as seguintes somas das linhas:  i12 + i52 + i32 = 0
+                                     +  i65 - i52 - i54 = 0     resulta: i12 + i32 + i65 - i54 = 0
+                                     +  i43 - i32 = 0           resulta: i12 + i65 - i54 + i43 = 0
+                                     +  i54 - i43 = 0           resulta: i12 + i65 = 0 => i12 = -i65
+
+substituindo i65 por i12 na equação: -4i65 - 2i52 + i12 = 40 => -4(-i12) - 2i52 + i12 = 40 
+                                    = 4i12 + i12 - 2i52 = 40 => 5i12 - 2i52 = 40 
+
+2) Obtendo a segunda equação (-3i32 + i52 = 0)
+    como i32 = i54 podemos substituir na equação: -3i54 + i52 = 0 => -3i32 + i52 = 0
+
+3) Obtendo a terceira equação (-3i43 + i52 = 0)
+    como i43 = i54 podemos substituir na equação: -3i54 + i52 = 0 => -3i43 + i52 = 0
+
+4) Obtendo a quarta equação (i65 - 4i52/3 = 0)
+    da equação original: i65 − i52 − i54 = 0
+    utilizando a equação: -3i54 + i52 = 0 
+    temos que: i54 = i52/3
+    então: i65 - i52 - i52/3 = 0 => i65 - 4i52/3 = 0
+
+5) Obtendo a quinta equação (-3i54 + i52 = 0)
+    da equação original: −15i54 − 5i43 − 10i32 + 10i52 = 0 => -30i54 + 10i52 = 0 => -3i54 + i52 = 0
+
+6) Obtendo a sexta equação (-4i65 - 2i52 + i12 = 40 )
+    
+    
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Eqs finais condicionadas para o método de gauss-seidel:
+
+5i12 - 2i52 = 0
+-3i32 + i52 = 0
+-3i43 + i52 = 0
+i65 - i52*4/3 = 0
+-3i54 + i52 = 0
+-4i65 - 2i52 + i12 = 40 
