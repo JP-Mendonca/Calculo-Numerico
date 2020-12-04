@@ -73,6 +73,8 @@ x_inicial = []
 for i in range(len(matriz)):
   x_inicial.append(0)
 
-print("Método de gauss-seidel:")
-result = gauss_seidel(x_inicial,matriz, 10**-15)
+erro_ = 10**-15
+print("Método de gauss-seidel")
+print("Erro:", erro_)
+result = gauss_seidel(x_inicial,matriz, erro_)
 print(result)
