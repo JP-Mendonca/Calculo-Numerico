@@ -1,4 +1,5 @@
-# gauss seidel
+# APS cálculo numérico
+# Aluno: João Pedro Mendonça Oliveira
 
 def gauss_seidel(x_inicial, matriz, erro):
 
